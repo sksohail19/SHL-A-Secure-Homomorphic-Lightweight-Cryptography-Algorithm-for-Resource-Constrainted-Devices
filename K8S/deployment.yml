@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shl-app
+spec:
+  replicas: 1
+  selector:
+    matchLables:
+      app: shl-app
+  template:
+    metadata:
+      labels:
+        app: shl-app
+    spec:
+      containers:
+      - name: shl-container
+        image: shl-app:latest
+        ports:
+        - containerPort: 1238
+```
