@@ -1,0 +1,21 @@
+---
+- name: Deploy SHL Application
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+    - name: Install Python dependencies
+      pip:
+        requirements: /src/requirements.txt
+    - name: Copy applications files
+      copy:
+        src: /src/
+        dest: /opt/shl-app/
+    - name: Build Docker image
+      command: docker build -t shl-app /opt/shl-app/
+    - name: Run Docker container
+      command: docker run -d --name shl-container shl-app
