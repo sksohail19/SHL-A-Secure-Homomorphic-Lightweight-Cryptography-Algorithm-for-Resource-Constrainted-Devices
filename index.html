@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption/Decryption App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Encryption/Decryption Tool</h1>
+        <div class="mode-selector">
+            <button id="encryptBtn" class="active">Encrypt</button>
+            <button id="decryptBtn">Decrypt</button>
+        </div>
+        <div id="encryptSection" class="section active">
+            <h2>Encryption</h2>
+            <form id="encryptForm">
+                <label for="plainText">Plain Text:</label>
+                <textarea id="plainText" required></textarea>
+                
+                <label for="secretMessage">Secret Message:</label>
+                <input type="text" id="secretMessage" required>
+                
+                <label for="saltMessage">Salt Message:</label>
+                <input type="text" id="saltMessage" required>
+                
+                <button type="submit">Encrypt</button>
+            </form>
+            <div id="encryptResult" class="result"></div>
+        </div>
+        
+        <div id="decryptSection" class="section">
+            <h2>Decryption</h2>
+            <form id="decryptForm">
+                <label for="cipherText">Cipher Text:</label>
+                <textarea id="cipherText" required></textarea>
+                
+                <label for="decryptSecretMessage">Secret Message:</label>
+                <input type="text" id="decryptSecretMessage" required>
+                
+                <label for="decryptSaltMessage">Salt Message:</label>
+                <input type="text" id="decryptSaltMessage" required>
+                
+                <button type="submit">Decrypt</button>
+            </form>
+            <div id="decryptResult" class="result"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
